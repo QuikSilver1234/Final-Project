@@ -1,7 +1,7 @@
 const gulp = require("gulp");
 const prefix = require("gulp-autoprefixer");
 const cleancss = require("gulp-clean-css");
-// const imagemin = require("gulp-imagemin");
+const imagemin = require("gulp-imagemin");
 // const babel = require("gulp-babel");
 // const concat = require("gulp-concat");
 // const ugly = require("gulp-uglify");
@@ -19,4 +19,11 @@ function css() {
     .pipe(gulp.dest("dest/css"));
 }
 
-exports.all = gulp.series(css);
+function images() {
+  return gulp
+    .src("src/images/*")
+    .pipe(imagemin())
+    .pipe(gulp.dest("dest/images"));
+}
+
+exports.all = gulp.series(css, images);
