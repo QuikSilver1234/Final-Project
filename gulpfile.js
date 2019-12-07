@@ -33,19 +33,20 @@ function js() {
       babel({
         presets: [["@babel/preset-env", { modules: false }]]
       })
-        .pipe(concat("main.js"))
-        .pipe(ugly())
     )
+    .pipe(concat("main.js"))
+    .pipe(ugly())
+
     .pipe(gulp.dest("dest/js"));
 }
 
 function html() {
   return gulp.src("index.html").pipe(gulp.dest("dest"));
 }
-function watch() {
+function watcher() {
   watch("./src/css/*.css", css);
   watch("./src/images/*.*", images);
   watch("./src/js/*.js", js);
   watch("./src/index.html", html);
 }
-exports.all = gulp.parallel(css, images, js, html, watch);
+exports.all = gulp.parallel(css, images, js, html, watcher);
