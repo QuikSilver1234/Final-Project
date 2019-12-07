@@ -26,4 +26,14 @@ function images() {
     .pipe(gulp.dest("dest/images"));
 }
 
-exports.all = gulp.series(css, images);
+function js() {
+  return gulp
+    .src("src/js/*.js")
+    .pipe(
+      babel({
+        presets: [["@babel/preset-env", { modules: false }]]
+      })
+    )
+    .pipe(gulp.dest("dest/js"));
+}
+exports.all = gulp.series(css, images, js);
