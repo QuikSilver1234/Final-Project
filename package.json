@@ -17,6 +17,8 @@
   },
   "homepage": "https://github.com/QuikSilver1234/Final-Project#readme",
   "devDependencies": {
+    "@babel/core": "^7.7.5",
+    "@babel/preset-env": "^7.7.5",
     "@babel/preset-es2015": "^7.0.0-beta.53",
     "gulp": "^4.0.2",
     "gulp-autoprefixer": "^7.0.1",
