@@ -42,4 +42,10 @@ function js() {
 function html() {
   return gulp.src("index.html").pipe(gulp.dest("dest"));
 }
-exports.all = gulp.series(css, images, js);
+function watch() {
+  watch("./src/css/*.css", css);
+  watch("./src/images/*.*", images);
+  watch("./src/js/*.js", js);
+  watch("./src/index.html", html);
+}
+exports.all = gulp.parallel(css, images, js, html, watch);
