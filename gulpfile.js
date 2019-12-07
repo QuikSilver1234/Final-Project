@@ -32,7 +32,9 @@ function js() {
     .pipe(
       babel({
         presets: [["@babel/preset-env", { modules: false }]]
-      }).pipe(concat("main.js"))
+      })
+        .pipe(concat("main.js"))
+        .pipe(ugly())
     )
     .pipe(gulp.dest("dest/js"));
 }
