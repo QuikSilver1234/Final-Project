@@ -39,4 +39,7 @@ function js() {
     .pipe(gulp.dest("dest/js"));
 }
 
+function html() {
+  return gulp.src("index.html").pipe(gulp.dest("dest"));
+}
 exports.all = gulp.series(css, images, js);
