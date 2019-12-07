@@ -4,7 +4,7 @@ const cleancss = require("gulp-clean-css");
 const imagemin = require("gulp-imagemin");
 const babel = require("@babel/preset-es2015");
 const concat = require("gulp-concat");
-// const ugly = require("gulp-uglify");
+const ugly = require("gulp-uglify");
 
 function css() {
   return gulp
@@ -38,4 +38,5 @@ function js() {
     )
     .pipe(gulp.dest("dest/js"));
 }
+
 exports.all = gulp.series(css, images, js);
